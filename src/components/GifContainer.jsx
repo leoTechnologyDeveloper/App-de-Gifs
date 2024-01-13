@@ -7,7 +7,7 @@ const GifContainer = () => {
   const [listaGifs, setListaGifs] = useState([]);
 
   const url =
-    "http://api.giphy.com/v1/gifs/search?api_key=pdZ0vP8GtpjmNUDRnP9iEWz1TWqPhUtc&q=hamburguer";
+    "https://api.giphy.com/v1/gifs/search?api_key=pdZ0vP8GtpjmNUDRnP9iEWz1TWqPhUtc&q=hamburguer";
 
   useEffect(() => {
     fetch(url)
@@ -21,7 +21,7 @@ const GifContainer = () => {
         <GifCard key={gif.nombre} nombre={gif.nombre} imagen={gif.imagen} />
       ))} */}
 
-      {listaGifs.map((gif, index) => (
+      {listaGifs.map((gif) => (
         <GifCard
           key={gif.username}
           nombre={gif.username}
@@ -29,7 +29,7 @@ const GifContainer = () => {
         />
         // <p key={index}>oee</p>
       ))}
-      <p>lalala</p>
+      <p>ups</p>
     </div>
   );
 };
