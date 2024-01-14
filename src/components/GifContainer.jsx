@@ -1,19 +1,14 @@
-import { data } from "autoprefixer";
 import GifCard from "./GifCard";
 // import { gifList } from "./gifArray";
 import { useState, useEffect } from "react";
-import GifFinder from "./gifFinder";
 
 const GifContainer = () => {
   const [listaGifs, setListaGifs] = useState([]);
   const [searchWord, setSearchWord] = useState("simpson");
   const [newWord, setNewWord] = useState("");
 
-  // const handleBuscar = (nueva) => {
-  //   setSearchWord(nueva);
-  // };
-
   const handleClick = () => {
+    setListaGifs([]);
     setSearchWord(newWord);
     setNewWord("");
   };
@@ -27,19 +22,14 @@ const GifContainer = () => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => setListaGifs(data.data));
-  }, [searchWord]);
+  }, [searchWord, url]);
 
   return (
     <div className=" bg-black p-5 flex  flex-wrap justify-center items-center gap-3 m-auto">
-      {/* {listaGifs.map((gif) => (
-        <GifCard key={gif.nombre} nombre={gif.nombre} imagen={gif.imagen} />
-      ))} */}
-
-      {/* <GifFinder buscar={handleBuscar} /> */}
       <div className="inline-block w-full mx-auto text-center">
         <input
           onChange={handleInput}
-          className="rounded-sm px-3 text-black w-2/5"
+          className="rounded-sm px-3 text-black w-10/12"
           type="text"
           placeholder="Digita tu busqueda"
           value={newWord}
@@ -59,7 +49,6 @@ const GifContainer = () => {
           nombre={gif.username}
           imagen={gif.images.original.url}
         />
-        // <p key={index}>oee</p>
       ))}
       <p>ups</p>
     </div>
