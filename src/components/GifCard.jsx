@@ -1,5 +1,4 @@
 const GifCard = ({ imagen, nombre }) => {
-  console.log(nombre);
   return (
     <div className="bg-gray-100 text-black w-full max-w-xl md:w-3/12 h-40 rounded-xl overflow-hidden text-center">
       <figure className="w-full h-3/4 overflow-hidden">
